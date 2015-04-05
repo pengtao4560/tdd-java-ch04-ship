@@ -11,4 +11,8 @@ public class Ship {
         this.location = location;
     }
 
+    public boolean moveForward() {
+        return location.forward();
+    }
+
 }

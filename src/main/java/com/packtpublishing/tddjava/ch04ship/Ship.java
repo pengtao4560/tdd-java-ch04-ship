@@ -28,7 +28,22 @@ public class Ship {
     }
 
     public void receiveCommands(String commands) {
-        moveForward();
+        for (char command : commands.toCharArray()) {
+            switch(command) {
+                case 'f':
+                    moveForward();
+                    break;
+                case 'b':
+                    moveBackward();
+                    break;
+                case 'l':
+                    turnLeft();
+                    break;
+                case 'r':
+                    turnRight();
+                    break;
+            }
+        }
     }
 
 }

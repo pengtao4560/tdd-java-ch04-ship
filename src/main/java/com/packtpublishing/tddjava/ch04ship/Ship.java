@@ -19,4 +19,12 @@ public class Ship {
         return location.backward();
     }
 
+    public void turnLeft() {
+        location.turnLeft();
+    }
+
+    public void turnRight() {
+        location.turnRight();
+    }
+
 }

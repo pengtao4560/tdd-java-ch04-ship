@@ -27,4 +27,8 @@ public class Ship {
         location.turnRight();
     }
 
+    public void receiveCommands(String commands) {
+        moveForward();
+    }
+
 }

@@ -21,6 +21,8 @@ public class ShipSpec {
     }
 
     public void whenInstantiatedThenLocationIsSet() {
+//        Location location = new Location(new Point(21, 13), Direction.NORTH);
+//        Ship ship = new Ship(location);
         assertEquals(ship.getLocation(), location);
     }
 
@@ -106,6 +108,20 @@ public class ShipSpec {
 //        Planet planet = new Planet(max);
 //        ship = new Ship(location, planet);
         assertEquals(ship.getPlanet(), planet);
+    }
+
+    public void givenDirectionEAndXEqualsMaxXWhenReceiveCommandsFThenWrap() {
+        location.setDirection(Direction.EAST);
+        location.getPoint().setX(planet.getMax().getX());
+        ship.receiveCommands("f");
+        assertEquals(location.getX(), 1);
+    }
+
+    public void givenDirectionEAndXEquals1WhenReceiveCommandsBThenWrap() {
+        location.setDirection(Direction.EAST);
+        location.getPoint().setX(1);
+        ship.receiveCommands("b");
+        assertEquals(location.getX(), planet.getMax().getX());
     }
 
 }

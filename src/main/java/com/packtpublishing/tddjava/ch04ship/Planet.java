@@ -17,6 +17,10 @@ public class Planet {
         this.obstacles = obstacles;
     }
 
+    // TODO: Add to all branches
+    public Planet(Point max) {
+        this.max = max;
+    }
     public Planet(Point max, List<Point> obstacles) {
         this.max = max;
         this.obstacles = obstacles;

@@ -7,8 +7,18 @@ public class Ship {
         return location;
     }
 
+    private Planet planet;
+    public Planet getPlanet() {
+        return planet;
+    }
+
+    // TODO: Remove
     public Ship(Location location) {
         this.location = location;
+    }
+    public Ship(Location location, Planet planet) {
+        this.location = location;
+        this.planet = planet;
     }
 
     public boolean moveForward() {

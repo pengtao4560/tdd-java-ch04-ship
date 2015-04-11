@@ -22,12 +22,12 @@ public class Ship {
 
     public boolean moveForward() {
 //        return location.forward();
-        return location.forward(planet.getMax());
+        return location.forward(planet.getMax(), planet.getObstacles());
     }
 
     public boolean moveBackward() {
 //        return location.backward();
-        return location.backward(planet.getMax());
+        return location.backward(planet.getMax(), planet.getObstacles());
     }
 
     public void turnLeft() {
@@ -38,14 +38,16 @@ public class Ship {
         location.turnRight();
     }
 
-    public void receiveCommands(String commands) {
+    public String receiveCommands(String commands) {
+        StringBuilder output = new StringBuilder();
         for (char command : commands.toCharArray()) {
+            boolean status = true;
             switch(command) {
                 case 'f':
-                    moveForward();
+                    status = moveForward();
                     break;
                 case 'b':
-                    moveBackward();
+                    status = moveBackward();
                     break;
                 case 'l':
                     turnLeft();
@@ -54,7 +56,13 @@ public class Ship {
                     turnRight();
                     break;
             }
+            if (status) {
+                output.append("O");
+            } else {
+                output.append("X");
+            }
         }
+        return output.toString();
     }
 
 }

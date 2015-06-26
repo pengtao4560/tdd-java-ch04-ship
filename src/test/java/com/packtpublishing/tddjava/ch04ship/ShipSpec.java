@@ -9,7 +9,7 @@ public class ShipSpec {
 
     private Ship ship;
     private Location location;
-    Planet planet;
+    private Planet planet;
 
     @BeforeMethod
     public void beforeTest() {

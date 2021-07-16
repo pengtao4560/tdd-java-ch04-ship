@@ -38,13 +38,13 @@ public class LocationSpec {
 
     public void givenDirectionNWhenForwardThenYDecreases() {
         location.forward(max, obstacles);
-        assertEquals(location.getY(), y - 1);
+        assertEquals(location.getY(), y + 1);
     }
 
     public void givenDirectionSWhenForwardThenYIncreases() {
         location.setDirection(Direction.SOUTH);
         location.forward(max, obstacles);
-        assertEquals(location.getY(), y + 1);
+        assertEquals(location.getY(), y - 1);
     }
 
     public void givenDirectionEWhenForwardThenXIncreases() {
@@ -62,13 +62,13 @@ public class LocationSpec {
     public void givenDirectionNWhenBackwardThenYIncreases() {
         location.setDirection(Direction.NORTH);
         location.backward(max, obstacles);
-        assertEquals(location.getY(), y + 1);
+        assertEquals(location.getY(), y - 1);
     }
 
     public void givenDirectionSWhenBackwardThenYDecreases() {
         location.setDirection(Direction.SOUTH);
         location.backward(max, obstacles);
-        assertEquals(location.getY(), y - 1);
+        assertEquals(location.getY(), y + 1);
     }
 
     public void givenDirectionEWhenBackwardThenXDecreases() {
@@ -148,14 +148,14 @@ public class LocationSpec {
     public void givenDirectionNAndYEquals1WhenForwardThenMaxY() {
         location.setDirection(Direction.NORTH);
         location.getPoint().setY(1);
-        location.forward(max, obstacles);
+        location.backward(max, obstacles);
         assertEquals(location.getY(), max.getY());
     }
 
     public void givenDirectionSAndYEqualsMaxYWhenForwardThen1() {
         location.setDirection(Direction.SOUTH);
         location.getPoint().setY(max.getY());
-        location.forward(max, obstacles);
+        location.backward(max, obstacles);
         assertEquals(location.getY(), 1);
     }
 

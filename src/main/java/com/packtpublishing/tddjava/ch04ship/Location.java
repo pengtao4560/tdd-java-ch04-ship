@@ -59,10 +59,10 @@ public class Location {
         int y = point.getY();
         switch(getDirection()) {
             case NORTH:
-                y = wrap(getY() - fw, max.getY());
+                y = wrap(getY() + fw, max.getY());
                 break;
             case SOUTH:
-                y = wrap(getY() + fw, max.getY());
+                y = wrap(getY() - fw, max.getY());
                 break;
             case EAST:
                 x = wrap(getX() + fw, max.getX());
@@ -87,7 +87,7 @@ public class Location {
         }
         return false;
     }
-
+    /** 给一个范围包裹： 一般返回point*/
     private int wrap(int point, int maxPoint) {
         if (maxPoint > 0) {
             if (point > maxPoint) {
